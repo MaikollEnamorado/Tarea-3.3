@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.calculadora;
 
-/**
- *
- * @author LATITUDE 7390
- */
 public class Calculadora {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Pantalla pantalla = new Pantalla();
+        pantalla.setVisible(true);
     }
 }
