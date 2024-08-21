@@ -68,6 +68,11 @@ public class Pantalla extends javax.swing.JFrame {
         btn_igual.setText("=");
 
         btn_nueve.setText("9");
+        btn_nueve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nueveActionPerformed(evt);
+            }
+        });
 
         btn_uno.setText("1");
         btn_uno.addActionListener(new java.awt.event.ActionListener() {
@@ -123,8 +128,18 @@ public class Pantalla extends javax.swing.JFrame {
         });
 
         btn_cinco.setText("5");
+        btn_cinco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cincoActionPerformed(evt);
+            }
+        });
 
         btn_seis.setText("6");
+        btn_seis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_seisActionPerformed(evt);
+            }
+        });
 
         btn_borrar.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btn_borrar.setText("AC");
@@ -143,8 +158,18 @@ public class Pantalla extends javax.swing.JFrame {
 
         btn_cero.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btn_cero.setText("0");
+        btn_cero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ceroActionPerformed(evt);
+            }
+        });
 
         btn_siete.setText("7");
+        btn_siete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_sieteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -252,17 +277,27 @@ public class Pantalla extends javax.swing.JFrame {
     }
     private void btn_ochoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ochoActionPerformed
         // TODO add your handling code here:
+        String texto = "8";
+        numero(texto);
+        txt_pantalla.requestFocus();
     }//GEN-LAST:event_btn_ochoActionPerformed
 
     private void btn_unoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_unoActionPerformed
         // TODO add your handling code here:
-        String texto = txt_pantalla.getText();
-        texto = texto + "1";
-        txt_pantalla.setText(texto);
+        String texto = "1";
+        numero(texto);
+        txt_pantalla.requestFocus();
+        
     }//GEN-LAST:event_btn_unoActionPerformed
-
+    public void numero(String numero){
+        Numero num = new Numero(txt_pantalla.getText(), numero);
+        txt_pantalla.setText(num.agregarnumero());
+    }
     private void btn_dosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dosActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:}
+        String texto = "2";
+        numero(texto);
+        txt_pantalla.requestFocus();
     }//GEN-LAST:event_btn_dosActionPerformed
 
     private void btn_multiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_multiplicacionActionPerformed
@@ -271,6 +306,9 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void btn_tresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_tresActionPerformed
         // TODO add your handling code here:
+        String texto = "3";
+        numero(texto);
+        txt_pantalla.requestFocus();
     }//GEN-LAST:event_btn_tresActionPerformed
 
     private void btn_porcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_porcentajeActionPerformed
@@ -279,6 +317,9 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void btn_cuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cuatroActionPerformed
         // TODO add your handling code here:
+        String texto = "4";
+        numero(texto);
+        txt_pantalla.requestFocus();
     }//GEN-LAST:event_btn_cuatroActionPerformed
 
     private void btn_divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_divisionActionPerformed
@@ -289,6 +330,41 @@ public class Pantalla extends javax.swing.JFrame {
         // TODO add your handling code here:
         escribir(evt);
     }//GEN-LAST:event_txt_pantallaKeyReleased
+
+    private void btn_cincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cincoActionPerformed
+        // TODO add your handling code here:
+        String texto = "5";
+        numero(texto);
+        txt_pantalla.requestFocus();
+    }//GEN-LAST:event_btn_cincoActionPerformed
+
+    private void btn_seisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seisActionPerformed
+        // TODO add your handling code here:
+        String texto = "6";
+        numero(texto);
+        txt_pantalla.requestFocus();
+    }//GEN-LAST:event_btn_seisActionPerformed
+
+    private void btn_sieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sieteActionPerformed
+        // TODO add your handling code here:
+        String texto = "7";
+        numero(texto);
+        txt_pantalla.requestFocus();
+    }//GEN-LAST:event_btn_sieteActionPerformed
+
+    private void btn_nueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueveActionPerformed
+        // TODO add your handling code here:
+        String texto = "9";
+        numero(texto);
+        txt_pantalla.requestFocus();
+    }//GEN-LAST:event_btn_nueveActionPerformed
+
+    private void btn_ceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ceroActionPerformed
+        // TODO add your handling code here:
+        String texto = "0";
+        numero(texto);
+        txt_pantalla.requestFocus();
+    }//GEN-LAST:event_btn_ceroActionPerformed
     public void escribir(KeyEvent evt){
         if(evt.getKeyCode() != 8 && txt_pantalla.getText().isBlank() == false){
             Text_Field condicion = new Text_Field(txt_pantalla.getText());
