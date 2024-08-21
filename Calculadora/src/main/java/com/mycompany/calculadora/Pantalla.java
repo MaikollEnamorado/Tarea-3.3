@@ -4,6 +4,8 @@
  */
 package com.mycompany.calculadora;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author LATITUDE 7390
@@ -304,9 +306,15 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void txt_pantallaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pantallaKeyReleased
         // TODO add your handling code here:
-        
+        escribir(evt);
     }//GEN-LAST:event_txt_pantallaKeyReleased
-
+    public void escribir(KeyEvent evt){
+        String texto = txt_pantalla.getText();
+        if(evt.getKeyCode() != 8 && texto.isBlank() == false){
+            Text_Field condicion = new Text_Field(texto);
+            txt_pantalla.setText(condicion.numeros());
+        }
+    }
     /**
      * @param args the command line arguments
      */
