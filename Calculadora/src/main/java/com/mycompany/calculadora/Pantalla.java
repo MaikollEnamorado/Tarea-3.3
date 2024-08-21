@@ -133,11 +133,6 @@ public class Pantalla extends javax.swing.JFrame {
         txt_pantalla.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         txt_pantalla.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txt_pantalla.setMaximumSize(null);
-        txt_pantalla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pantallaActionPerformed(evt);
-            }
-        });
         txt_pantalla.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_pantallaKeyReleased(evt);
@@ -248,22 +243,13 @@ public class Pantalla extends javax.swing.JFrame {
 
     private void btn_puntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_puntoActionPerformed
         // TODO add your handling code here:
-        String texto = txt_pantalla.getText();
-        int encontrado = 0;
-        if(texto.isBlank() == false){
-            for(int i = 0; i < texto.length(); i++){
-                if(texto.charAt(i) == '.'){
-                    encontrado = encontrado + 1;
-                }
-            }
-            if (encontrado == 0){
-                texto = texto + ".";
-            }
-        }
-        texto = "0.";
-        txt_pantalla.setText(texto);
+        punto();
     }//GEN-LAST:event_btn_puntoActionPerformed
-
+    public void punto(){
+        Punto punto = new Punto(txt_pantalla.getText());
+        txt_pantalla.setText(punto.accion());
+        txt_pantalla.requestFocus();
+    }
     private void btn_ochoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ochoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_ochoActionPerformed
@@ -299,19 +285,13 @@ public class Pantalla extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_divisionActionPerformed
 
-    private void txt_pantallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pantallaActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_txt_pantallaActionPerformed
-
     private void txt_pantallaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_pantallaKeyReleased
         // TODO add your handling code here:
         escribir(evt);
     }//GEN-LAST:event_txt_pantallaKeyReleased
     public void escribir(KeyEvent evt){
-        String texto = txt_pantalla.getText();
-        if(evt.getKeyCode() != 8 && texto.isBlank() == false){
-            Text_Field condicion = new Text_Field(texto);
+        if(evt.getKeyCode() != 8 && txt_pantalla.getText().isBlank() == false){
+            Text_Field condicion = new Text_Field(txt_pantalla.getText());
             txt_pantalla.setText(condicion.numeros());
         }
     }
