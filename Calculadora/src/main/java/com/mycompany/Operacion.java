@@ -1,5 +1,5 @@
 
-package calculadora;
+package com.mycompany.calculadora;
 
 public class Operacion {
     public boolean activo;
